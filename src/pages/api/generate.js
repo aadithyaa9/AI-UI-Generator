@@ -13,10 +13,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'userIntent is required' });
     }
 
-    // Check if API key is available
     const hasApiKey = !!process.env.GEMINI_API_KEY;
     
-    // Use mock agent if no API key, real agent if key exists
     const agent = hasApiKey ? new UIGenerationAgent() : new MockUIGenerationAgent();
     
     console.log(`Using ${hasApiKey ? 'GEMINI' : 'MOCK'} AI agent`);
