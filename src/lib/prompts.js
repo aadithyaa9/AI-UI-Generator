@@ -6,15 +6,20 @@ CRITICAL RULES:
 - Focus on layout, composition, and visual hierarchy
 - Components should be presentational only
 
-AVAILABLE COMPONENTS (FIXED - DO NOT CREATE NEW ONES):
-- Button: Static button display (no onClick)
-- Card: Container with optional title and footer
-- Input: Input field display (no value/onChange)
-- Table: Static data table display
-- Modal: Modal dialog display (always visible if used)
-- Sidebar: Side navigation panel
-- Navbar: Top navigation bar
-- Chart: Static data visualization
+AVAILABLE COMPONENTS (FIXED - DO NOT CREATE NEW ONES. USE EXACT PROPS):
+- Button: <Button variant="primary|secondary|danger|ghost" size="small|medium|large" disabled={false} className="mt-4">Child Text</Button>
+- Card: <Card title="Optional Title" footer={<Button>Action</Button>} className="p-4">Child Content</Card>
+- Input: <Input label="Email" type="text|email|password" placeholder="Enter here" error="Optional error text" className="mb-2" />
+- Table: <Table columns={[{header: "Service", key: "serviceName"}, {header: "Status", key: "status"}]} data={[{serviceName: "Auth", status: "Online"}]} className="w-full" />
+- Modal: <Modal isOpen={true} onClose={() => {}} title="Dialog Title" footer={<Button>Close</Button>}>Child Content</Modal>
+- Sidebar: <Sidebar width="w-64" className="bg-gray-900">Child Content (like custom nav links)</Sidebar>
+- Navbar: <Navbar logo="App Name" className="border-b">Child Content</Navbar>
+- Chart: <Chart type="bar|line|pie" data={[{name: "Jan", value: 100}, {name: "Feb", value: 200}]} config={{xKey: "name", yKey: "value"}} className="mt-4" />
+
+CRITICAL PROP RULES:
+- Tables MUST use "columns" (array of objects with 'header' and 'key') and "data" (array of objects). Do NOT use 'headers' or 'content' props.
+- Charts MUST use "data" (array of objects) and "config" (object mapping keys). Do NOT use 'content' props.
+- Sidebars and Cards MUST use standard React "children" for their inner content.
 
 USER INTENT:
 ${userIntent}
@@ -61,6 +66,21 @@ CRITICAL RULES - PURE LAYOUT ONLY:
 11. Components should display static data/placeholders
 12. If inputs/forms needed, show them in static display state
 
+AVAILABLE COMPONENTS (FIXED - DO NOT CREATE NEW ONES. USE EXACT PROPS):
+- Button: <Button variant="primary|secondary|danger|ghost" size="small|medium|large" disabled={false} className="mt-4">Child Text</Button>
+- Card: <Card title="Optional Title" footer={<Button>Action</Button>} className="p-4">Child Content</Card>
+- Input: <Input label="Email" type="text|email|password" placeholder="Enter here" error="Optional error text" className="mb-2" />
+- Table: <Table columns={[{header: "Service", key: "serviceName"}, {header: "Status", key: "status"}]} data={[{serviceName: "Auth", status: "Online"}]} className="w-full" />
+- Modal: <Modal isOpen={true} onClose={() => {}} title="Dialog Title" footer={<Button>Close</Button>}>Child Content</Modal>
+- Sidebar: <Sidebar width="w-64" className="bg-gray-900">Child Content (like custom nav links)</Sidebar>
+- Navbar: <Navbar logo="App Name" className="border-b">Child Content</Navbar>
+- Chart: <Chart type="bar|line|pie" data={[{name: "Jan", value: 100}, {name: "Feb", value: 200}]} config={{xKey: "name", yKey: "value"}} className="mt-4" />
+
+CRITICAL PROP RULES:
+- Tables MUST use "columns" (array of objects with 'header' and 'key') and "data" (array of objects). Do NOT use 'headers' or 'content' props.
+- Charts MUST use "data" (array of objects) and "config" (object mapping keys). Do NOT use 'content' props.
+- Sidebars and Cards MUST use standard React "children" for their inner content.
+
 EXAMPLE OF PURE LAYOUT (GOOD):
 \`\`\`jsx
 export default function GeneratedUI() {
@@ -69,19 +89,6 @@ export default function GeneratedUI() {
       <Input label="Email" placeholder="you@example.com" />
       <Button variant="primary">Submit</Button>
     </div>
-  );
-}
-\`\`\`
-
-EXAMPLE WITH STATE (BAD - DON'T DO THIS):
-\`\`\`jsx
-export default function GeneratedUI() {
-  const [email, setEmail] = useState(''); // ❌ NO STATE
-  return (
-    <Input 
-      value={email} 
-      onChange={(e) => setEmail(e.target.value)} // ❌ NO HANDLERS
-    />
   );
 }
 \`\`\`

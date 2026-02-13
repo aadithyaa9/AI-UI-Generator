@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { PLANNER_PROMPT, GENERATOR_PROMPT, EXPLAINER_PROMPT, VALIDATION_PROMPT } from './prompts';
+import { PLANNER_PROMPT, GENERATOR_PROMPT, EXPLAINER_PROMPT, VALIDATION_PROMPT } from './prompts.js';
 
 export class UIGenerationAgent {
   constructor() {

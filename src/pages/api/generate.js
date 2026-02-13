@@ -1,5 +1,5 @@
-import { UIGenerationAgent } from '../../lib/geminiAgent';
-import { MockUIGenerationAgent } from '../../lib/mockAgent';
+import { UIGenerationAgent } from '../../lib/geminiAgent.js';
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
