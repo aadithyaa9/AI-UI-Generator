@@ -2,7 +2,7 @@
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css&logoColor=white)
-![Google Gemini](https://img.shields.io/badge/Google%20Gemini-1.5%20Flash-blue?logo=google)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini-2.5%20Flash-blue?logo=google)
 
 
 Artifex is a deterministic, AI-powered UI generation tool that converts natural language prompts into production-ready React components. 
