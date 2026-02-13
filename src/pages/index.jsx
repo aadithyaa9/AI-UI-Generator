@@ -34,10 +34,7 @@ export default function Landing() {
 
         {/* Hero Section */}
         <section className="px-6 pt-32 pb-24 max-w-5xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm animate-fade-in-up">
-            <Zap size={14} className="text-blue-400" />
-            <span className="text-sm text-gray-300">Powered by Gemini 1.5 Flash</span>
-          </div>
+          
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.1] animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             Design Systems,<br />
