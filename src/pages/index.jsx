@@ -22,7 +22,6 @@ export default function Landing() {
             <a href="#features" className="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
             <a href="#how-it-works" className="text-sm text-gray-400 hover:text-white transition-colors">How it Works</a>
             
-            {/* UPDATED: Dark themed Launch App Button */}
             <button
               onClick={() => router.push('/app')}
               className="px-6 py-2 bg-black text-white border border-white/20 text-sm font-semibold rounded-full hover:bg-white/10 transition-all shadow-lg"
